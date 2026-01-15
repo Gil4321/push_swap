@@ -6,7 +6,7 @@
 /*   By: adghouai <adghouai@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 17:16:32 by adghouai          #+#    #+#             */
-/*   Updated: 2026/01/15 13:08:14 by adghouai         ###   ########lyon.fr   */
+/*   Updated: 2026/01/15 14:15:00 by adghouai         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	rotate_push(size_t small, t_stack *a, t_stack *b)
 {
-	if (small < (a->size / 2))
+	if (small <= (a->size / 2))
 	{
 		while (small > 0)
 		{
