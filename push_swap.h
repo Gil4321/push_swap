@@ -6,7 +6,7 @@
 /*   By: adghouai <adghouai@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 21:37:16 by adghouai          #+#    #+#             */
-/*   Updated: 2026/01/14 17:35:35 by adghouai         ###   ########lyon.fr   */
+/*   Updated: 2026/01/15 14:48:11 by adghouai         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@
 
 typedef struct s_stack
 {
-	int			*array;
-	size_t		size;
-}					t_stack;
+	int		*array;
+	size_t	size;
+}			t_stack;
 
 int			*error_checker(char **tab, int size, int *tab_len);
 long int	ft_atoi(const char *nptr);
@@ -34,10 +34,9 @@ size_t		compute_len(char **tab, int size);
 void		free_double_tab(char **tab);
 void		fill_tab_bis(char **joined_args, int *tab, int *j);
 void		simple_algo(t_stack *a, t_stack *b);
-void	pa(t_stack *a, t_stack *b);
-void	pb(t_stack *a, t_stack *b);
-void	ra(t_stack *a);
-void	rra(t_stack *a);
-
+void		pa(t_stack *a, t_stack *b);
+void		pb(t_stack *a, t_stack *b);
+void		ra(t_stack *a);
+void		rra(t_stack *a);
 
 #endif
