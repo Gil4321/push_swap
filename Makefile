@@ -1,6 +1,7 @@
 SRC = main.c error_checker.c error_checker_utilities.c \
 	  algorithms/simple_algo.c operations/push.c \
-	  operations/rotate.c operations/reverse_rotate.c
+	  operations/rotate.c operations/reverse_rotate.c \
+	  strategy_selector.c
 
 CC = cc
 

@@ -6,30 +6,32 @@
 /*   By: adghouai <adghouai@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 22:01:02 by adghouai          #+#    #+#             */
-/*   Updated: 2026/01/14 17:36:07 by adghouai         ###   ########lyon.fr   */
+/*   Updated: 2026/01/15 18:34:06 by adghouai         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	digit_check(char **tab, int size)
+static int	digit_check(char **argv, int argc)
 {
-	int	i;
-	int	j;
+	int		i;
+	size_t	j;
 
 	i = 1;
-	while (i < size)
+	while (option_check(argv[i]))
+		i++;
+	while (i < argc)
 	{
 		j = 0;
-		while (tab[i][j])
+		while (argv[i][j])
 		{
-			if (!(ft_isdigit(tab[i][j])) && tab[i][j] != ' '
-				&& tab[i][j] != '-')
+			if (!(ft_isdigit(argv[i][j])) && argv[i][j] != ' '
+				&& argv[i][j] != '-')
 				return (0);
-			if (tab[i][j] == '-')
+			if (argv[i][j] == '-')
 			{
-				if (ft_isdigit(tab[i][j + 1]) == 0
-					|| (j != 0 && tab[i][j - 1] != ' '))
+				if (ft_isdigit(argv[i][j + 1]) == 0 || (j != 0 && argv[i][j
+					- 1] != ' '))
 					return (0);
 			}
 			j++;
@@ -39,83 +41,101 @@ static int	digit_check(char **tab, int size)
 	return (1);
 }
 
-static int	range_check(char **tab)
+static void	range_check(char **argv, int argc)
 {
-	int			i;
-	long int	arg;
+	int		i;
+	size_t	j;
+	char	**split_args;
 
-	i = 0;
-	while (tab[i])
+	i = 1;
+	while (option_check(argv[i]))
+		i++;
+	while (i < argc)
 	{
-		arg = ft_atoi(tab[i]);
-		if ((arg > INT_MAX) || (arg < INT_MIN))
-			return (0);
+		j = 0;
+		split_args = ft_split(argv[i], ' ');
+		if (!split_args)
+			exit(EXIT_FAILURE);
+		while (split_args[j])
+		{
+			if (!(ft_atoi_range(split_args[j])))
+			{
+				free_double_tab(split_args);
+				exit(EXIT_FAILURE);
+			}
+			j++;
+		}
+		free_double_tab(split_args);
 		i++;
 	}
-	return (1);
 }
 
-static int	duplicate_check(int *tab, int size)
+static void	duplicate_check(t_stack *a)
 {
-	int	i;
-	int	j;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
-	while (i < (size - 1))
+	while (i < (a->size - 1))
 	{
 		j = i + 1;
-		while (j < size)
+		while (j < a->size)
 		{
-			if (tab[i] == tab[j])
-				return (0);
+			if (a->array[i] == a->array[j])
+			{
+				free(a->array);
+				write(2, "Error\n", 6);
+				exit(EXIT_FAILURE);
+			}
 			j++;
 		}
 		i++;
 	}
-	return (1);
 }
 
-int	fill_tab(int *tab, char **args, int size)
+static void	fill_array(t_stack *a, char **argv, int argc)
 {
 	int		i;
-	int		j;
-	char	**joined_args;
+	size_t	j;
+	size_t	k;
+	char	**split_args;
 
 	i = 1;
-	j = 0;
-	while (i < size)
+	k = 0;
+	while (option_check(argv[i]))
+		i++;
+	while (i < argc)
 	{
-		joined_args = ft_split(args[i], ' ');
-		if (!joined_args || range_check(joined_args) == 0)
+		j = 0;
+		split_args = ft_split(argv[i], ' ');
+		if (!split_args)
 		{
-			if (joined_args)
-				free_double_tab(joined_args);
-			free(tab);
-			return (0);
+			free(a->array);
+			exit(EXIT_FAILURE);
 		}
-		fill_tab_bis(joined_args, tab, &j);
-		free_double_tab(joined_args);
+		while (split_args[j])
+		{
+			a->array[k] = ft_atoi(split_args[j]);
+			j++;
+			k++;
+		}
+		free_double_tab(split_args);
 		i++;
 	}
-	return (1);
 }
 
-int	*error_checker(char **tab, int size, int *tab_len)
+void	error_checker(char **argv, int argc, t_stack *a)
 {
-	int	*result;
-
-	if (digit_check(tab, size) == 0)
-		exit(EXIT_FAILURE);
-	*tab_len = compute_len(tab, size);
-	result = malloc(sizeof(int) * (*tab_len));
-	if (!result)
-		return (NULL);
-	if (fill_tab(result, tab, size) == 0)
-		return (NULL);
-	if (duplicate_check(result, *tab_len) == 0)
+	if (digit_check(argv, argc) == 0)
 	{
-		free(result);
-		return (NULL);
+		write(2, "Error\n", 6);
+		exit(EXIT_FAILURE);
 	}
-	return (result);
+	range_check(argv, argc);
+	a->size = compute_tab_len(argv, argc);
+	a->array = malloc(sizeof(int) * (a->size));
+	if (!(a->array))
+		exit(EXIT_FAILURE);
+	fill_array(a, argv, argc);
+	duplicate_check(a);
 }

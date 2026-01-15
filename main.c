@@ -6,7 +6,7 @@
 /*   By: adghouai <adghouai@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 21:12:42 by adghouai          #+#    #+#             */
-/*   Updated: 2026/01/14 17:50:16 by adghouai         ###   ########lyon.fr   */
+/*   Updated: 2026/01/15 16:38:43 by adghouai         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,27 +52,20 @@ void	show_stack(t_stack a)
 
 int	main(int argc, char **argv)
 {
-	int			*stack_a;
-	int			tab_len;
+	int			strategy;
 	float		disorder;
 	t_stack		a;
 	t_stack		b;
 
-	stack_a = error_checker(argv, argc, &tab_len);
-	if (!stack_a)
-	{
-		write(2, "Error\n", 6);
-		return (1);
-	}
-	disorder = compute_disorder(stack_a, tab_len);
+	strategy = strategy_selector(argc, argv);
+	error_checker(argv, argc, &a);
+	disorder = compute_disorder(a.array, a.size);
 	if (disorder == 0)
 	{
-		free(stack_a);
+		free(a.array);
 		return (0);
 	}
-	a.array = stack_a;
-	a.size = tab_len;
-	b.array = malloc(sizeof(int) * tab_len);
+	b.array = malloc(sizeof(int) * a.size);
 	b.size = 0;
 	simple_algo(&a, &b);
 	show_stack(a);
