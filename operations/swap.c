@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acombier <acombier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adghouai <adghouai@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 16:57:40 by acombier          #+#    #+#             */
-/*   Updated: 2026/01/13 11:29:13 by acombier         ###   ########.fr       */
+/*   Updated: 2026/01/14 17:39:00 by adghouai         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 // sa
 void	sa(t_stack *a)
@@ -47,7 +47,6 @@ void	ss(t_stack *a, t_stack *b)
 		a->array[0] = a->array[1];
 		a->array[1] = temp;
 	}
-
 	if (b->size >= 2)
 	{
 		temp = b->array[0];

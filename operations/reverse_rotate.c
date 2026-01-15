@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acombier <acombier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adghouai <adghouai@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 16:58:48 by acombier          #+#    #+#             */
-/*   Updated: 2026/01/13 11:05:17 by acombier         ###   ########.fr       */
+/*   Updated: 2026/01/15 13:09:59 by adghouai         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 // rra
 void	rra(t_stack *a)
 {
-	int	temp;
-	int	i;
+	int		temp;
+	size_t	i;
 
 	if (a->size < 2)
 		return ;
@@ -28,13 +28,13 @@ void	rra(t_stack *a)
 		i--;
 	}
 	a->array[0] = temp;
-	printf("rra\n");
 }
+
 // rrb
 void	rrb(t_stack *b)
 {
-	int	temp;
-	int	i;
+	int		temp;
+	size_t	i;
 
 	if (b->size < 2)
 		return ;
@@ -46,14 +46,13 @@ void	rrb(t_stack *b)
 		i--;
 	}
 	b->array[0] = temp;
-	printf("rrb\n");
 }
 
 // rrr
 void	rrr(t_stack *a, t_stack *b)
 {
-	int		temp;
-	int		i;
+	int temp;
+	size_t i;
 
 	if (a->size >= 2)
 	{
@@ -82,6 +81,4 @@ void	rrr(t_stack *a, t_stack *b)
 
 		b->array[0] = temp;
 	}
-
-	printf("rrr\n");
 }

@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acombier <acombier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adghouai <adghouai@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 16:58:13 by acombier          #+#    #+#             */
-/*   Updated: 2026/01/13 11:29:19 by acombier         ###   ########.fr       */
+/*   Updated: 2026/01/15 13:10:05 by adghouai         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 // pa
 void	pa(t_stack *a, t_stack *b)
 {
-	int	i;
-	int	value;
+	size_t	i;
+	int		value;
 
 	if (b->size == 0)
 		return ;
@@ -36,14 +36,13 @@ void	pa(t_stack *a, t_stack *b)
 	}
 	a->array[0] = value;
 	a->size++;
-	printf("pa\n");
 }
 
 // pb
 void	pb(t_stack *a, t_stack *b)
 {
-	int	i;
-	int	value;
+	size_t	i;
+	int		value;
 
 	if (a->size == 0)
 		return ;
@@ -63,5 +62,4 @@ void	pb(t_stack *a, t_stack *b)
 	}
 	b->array[0] = value;
 	b->size++;
-	printf("pb\n");
 }

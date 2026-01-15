@@ -6,7 +6,7 @@
 /*   By: adghouai <adghouai@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 22:01:02 by adghouai          #+#    #+#             */
-/*   Updated: 2026/01/12 15:54:56 by adghouai         ###   ########lyon.fr   */
+/*   Updated: 2026/01/14 17:36:07 by adghouai         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ int	*error_checker(char **tab, int size, int *tab_len)
 	int	*result;
 
 	if (digit_check(tab, size) == 0)
-		return (NULL);
+		exit(EXIT_FAILURE);
 	*tab_len = compute_len(tab, size);
 	result = malloc(sizeof(int) * (*tab_len));
 	if (!result)

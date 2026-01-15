@@ -6,7 +6,7 @@
 /*   By: adghouai <adghouai@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 21:12:42 by adghouai          #+#    #+#             */
-/*   Updated: 2026/01/12 16:23:02 by adghouai         ###   ########lyon.fr   */
+/*   Updated: 2026/01/14 17:50:16 by adghouai         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,25 +37,26 @@ float	compute_disorder(int *tab, int size)
 	return (mistakes / pairs);
 }
 
-/* #include <stdio.h>
-fonction de test pour afficher un tableau
-void	show_stack(int *tab, int size)
+#include <stdio.h>
+void	show_stack(t_stack a)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while (i < size)
+	while (i < a.size)
 	{
-		printf("%d\n", tab[i]);
+		printf("%d\n", a.array[i]);
 		i++;
 	}
-} */
+}
 
 int	main(int argc, char **argv)
 {
 	int			*stack_a;
 	int			tab_len;
 	float		disorder;
+	t_stack		a;
+	t_stack		b;
 
 	stack_a = error_checker(argv, argc, &tab_len);
 	if (!stack_a)
@@ -69,6 +70,11 @@ int	main(int argc, char **argv)
 		free(stack_a);
 		return (0);
 	}
-//	show_stack(stack_a, tab_len);
+	a.array = stack_a;
+	a.size = tab_len;
+	b.array = malloc(sizeof(int) * tab_len);
+	b.size = 0;
+	simple_algo(&a, &b);
+	show_stack(a);
 	return (0);
 }
