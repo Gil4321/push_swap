@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acombier <acombier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adghouai <adghouai@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 21:37:16 by adghouai          #+#    #+#             */
-/*   Updated: 2026/01/16 14:55:59 by acombier         ###   ########.fr       */
+/*   Updated: 2026/01/16 15:07:09 by adghouai         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,16 @@ typedef struct s_stack
 	size_t	size;
 }			t_stack;
 
-int			*error_checker(char **tab, int size, int *tab_len);
-long int	ft_atoi(const char *nptr);
-int			ft_strcmp(char *s, char *s2);
+void		error_checker(char **argv, int argc, t_stack *a);
+int			ft_atoi(const char *nptr);
+int			ft_atoi_range(const char *nptr);
+int			option_check(char *arg);
 int			ft_isdigit(int c);
 char		**ft_split(char *s, char c);
-size_t		compute_len(char **tab, int size);
+size_t		compute_tab_len(char **argv, int argc);
 void		free_double_tab(char **tab);
-void		fill_tab_bis(char **joined_args, int *tab, int *j);
+int			options_selector(int argc, char **argv);
+int			ft_strcmp(char *s1, const char *s2);
 void		simple_algo(t_stack *a, t_stack *b);
 void		pa(t_stack *a, t_stack *b);
 void		pb(t_stack *a, t_stack *b);
