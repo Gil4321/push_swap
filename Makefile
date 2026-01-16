@@ -1,11 +1,11 @@
 SRC = main.c error_checker.c error_checker_utilities.c \
 	  algorithms/simple_algo.c operations/push.c \
 	  operations/rotate.c operations/reverse_rotate.c \
-	  options_selector.c
+	  options_selector.c 
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror -g3
 
 DEP = $(OBJ:.o=.d)
 

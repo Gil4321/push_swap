@@ -6,7 +6,7 @@
 /*   By: adghouai <adghouai@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 21:12:42 by adghouai          #+#    #+#             */
-/*   Updated: 2026/01/16 13:33:23 by adghouai         ###   ########lyon.fr   */
+/*   Updated: 2026/01/16 14:10:33 by adghouai         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,15 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	b.array = malloc(sizeof(int) * a.size);
+	if (!(b.array))
+	{
+		free(a.array);
+		return (0);
+	}
 	b.size = 0;
 	simple_algo(&a, &b);
 	show_stack(a);
+	free(a.array);
+	free(b.array);
 	return (0);
 }
