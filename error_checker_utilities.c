@@ -6,7 +6,7 @@
 /*   By: adghouai <adghouai@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 22:08:31 by adghouai          #+#    #+#             */
-/*   Updated: 2026/01/15 18:37:48 by adghouai         ###   ########lyon.fr   */
+/*   Updated: 2026/01/16 13:16:56 by adghouai         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,9 @@ int	ft_atoi_range(const char *nptr)
 
 int	ft_atoi(const char *nptr)
 {
-	size_t		i;
-	int			sign;
-	long int	result;
+	size_t	i;
+	int		sign;
+	int		result;
 
 	i = 0;
 	sign = 1;

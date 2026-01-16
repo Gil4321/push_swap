@@ -6,7 +6,7 @@
 /*   By: adghouai <adghouai@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 21:12:42 by adghouai          #+#    #+#             */
-/*   Updated: 2026/01/15 16:38:43 by adghouai         ###   ########lyon.fr   */
+/*   Updated: 2026/01/16 13:33:23 by adghouai         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	main(int argc, char **argv)
 	t_stack		a;
 	t_stack		b;
 
-	strategy = strategy_selector(argc, argv);
+	strategy = options_selector(argc, argv);
 	error_checker(argv, argc, &a);
 	disorder = compute_disorder(a.array, a.size);
 	if (disorder == 0)

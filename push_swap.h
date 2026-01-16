@@ -6,7 +6,7 @@
 /*   By: adghouai <adghouai@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 21:37:16 by adghouai          #+#    #+#             */
-/*   Updated: 2026/01/15 18:14:54 by adghouai         ###   ########lyon.fr   */
+/*   Updated: 2026/01/16 13:12:41 by adghouai         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int			ft_isdigit(int c);
 char		**ft_split(char *s, char c);
 size_t		compute_tab_len(char **argv, int argc);
 void		free_double_tab(char **tab);
-int			strategy_selector(int argc, char **argv);
+int			options_selector(int argc, char **argv);
 int			ft_strcmp(char *s1, const char *s2);
 void		simple_algo(t_stack *a, t_stack *b);
 void		pa(t_stack *a, t_stack *b);

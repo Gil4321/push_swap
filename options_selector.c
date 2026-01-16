@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strategy_selector.c                                :+:      :+:    :+:   */
+/*   options_selector.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adghouai <adghouai@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 13:34:56 by adghouai          #+#    #+#             */
-/*   Updated: 2026/01/15 18:16:16 by adghouai         ###   ########lyon.fr   */
+/*   Updated: 2026/01/16 13:34:02 by adghouai         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_strcmp(char	*s1, const char *s2)
 	return (s1[i] - s2[i]);
 }
 
-static void	parse_strategy(char *arg, int *strat, int *strat_nb)
+static void	parse_options(char *arg, int *strat, int *strat_nb, int *bench)
 {
 	if (ft_strcmp(arg, "--simple") == 0)
 	{
@@ -45,25 +45,29 @@ static void	parse_strategy(char *arg, int *strat, int *strat_nb)
 	}
 	else if (ft_strcmp(arg, "--adaptive") == 0)
 		(*strat_nb)++;
-	if ((*strat_nb) > 1)
+	else if (ft_strcmp(arg, "--bench") == 0)
+		(*bench)++;
+	if ((*strat_nb) > 1 || (*bench) > 1)
 	{
 		write(2, "Error\n", 6);
 		exit(EXIT_FAILURE);
 	}
 }
 
-int	strategy_selector(int argc, char **argv)
+int	options_selector(int argc, char **argv)
 {
 	int		strat_nb;
 	int		strat;
+	int		bench;
 	int		i;
 
 	i = 1;
 	strat = 4;
 	strat_nb = 0;
-	while (i < argc)
+	bench = 0;
+	while (i < argc && i < 4)
 	{
-		parse_strategy(argv[i], &strat, &strat_nb);
+		parse_options(argv[i], &strat, &strat_nb, &bench);
 		i++;
 	}
 	return (strat);
