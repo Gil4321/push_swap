@@ -6,7 +6,7 @@
 /*   By: acombier <acombier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 15:15:23 by acombier          #+#    #+#             */
-/*   Updated: 2026/01/16 15:55:21 by acombier         ###   ########.fr       */
+/*   Updated: 2026/01/16 16:58:44 by acombier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void push_chunk_to_b(t_stack *a, t_stack *b, int min, int chunk_num, int 
 	size_t	pushed;
 	int index;
 
-	total = count_chunk_elements_elements(a, min , chunk_num, chunk_size);
+	total = count_chunk_elements(a, min , chunk_num, chunk_num);
 	pushed = 0;
 
 	while(pushed < total)

@@ -6,7 +6,7 @@
 /*   By: adghouai <adghouai@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 16:57:40 by acombier          #+#    #+#             */
-/*   Updated: 2026/01/14 17:39:00 by adghouai         ###   ########lyon.fr   */
+/*   Updated: 2026/01/16 15:18:19 by adghouai         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	sa(t_stack *a)
 	temp = a->array[0];
 	a->array[0] = a->array[1];
 	a->array[1] = temp;
-	printf("sa\n");
 }
 // sb
 void	sb(t_stack *b)
@@ -34,7 +33,6 @@ void	sb(t_stack *b)
 	temp = b->array[0];
 	b->array[0] = b->array[1];
 	b->array[1] = temp;
-	printf("sb\n");
 }
 // ss
 void	ss(t_stack *a, t_stack *b)
@@ -53,6 +51,4 @@ void	ss(t_stack *a, t_stack *b)
 		b->array[0] = b->array[1];
 		b->array[1] = temp;
 	}
-
-	printf("ss\n");
 }
