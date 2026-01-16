@@ -6,7 +6,7 @@
 /*   By: adghouai <adghouai@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 21:12:42 by adghouai          #+#    #+#             */
-/*   Updated: 2026/01/14 17:50:16 by adghouai         ###   ########lyon.fr   */
+/*   Updated: 2026/01/16 15:05:20 by adghouai         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	main(int argc, char **argv)
 	a.size = tab_len;
 	b.array = malloc(sizeof(int) * tab_len);
 	b.size = 0;
-	simple_algo(&a, &b);
+	medium_algo(&a, &b);
 	show_stack(a);
 	return (0);
 }
