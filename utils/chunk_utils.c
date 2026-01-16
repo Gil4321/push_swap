@@ -6,7 +6,7 @@
 /*   By: acombier <acombier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 17:51:51 by acombier          #+#    #+#             */
-/*   Updated: 2026/01/16 11:56:11 by acombier         ###   ########.fr       */
+/*   Updated: 2026/01/16 15:54:12 by acombier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ size_t	ft_sqrt(int nb)
 			return (i);
 		i++;
 	}
-	return (0);
+	return (i - 1);
 }
 
 
