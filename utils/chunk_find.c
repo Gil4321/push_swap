@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   chunk_find.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acombier <acombier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adghouai <adghouai@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 12:09:51 by acombier          #+#    #+#             */
-/*   Updated: 2026/01/16 13:39:46 by acombier         ###   ########.fr       */
+/*   Updated: 2026/01/16 15:18:47 by adghouai         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ size_t	find_max_index(t_stack *stack)
 	max_index = 0;
 	max_value = stack->array[0];
 	i = 1;
-	while(i < stack->array)
+	while(i < stack->size)
 	{
 		if(stack->array[i] > max_value)
 		{

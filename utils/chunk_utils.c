@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   chunk_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acombier <acombier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adghouai <adghouai@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 17:51:51 by acombier          #+#    #+#             */
-/*   Updated: 2026/01/16 11:56:11 by acombier         ###   ########.fr       */
+/*   Updated: 2026/01/16 15:22:30 by adghouai         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-size_t	ft_sqrt(int nb)
+size_t	ft_sqrt(size_t nb)
 {
 	size_t	i;
 	i = 1;

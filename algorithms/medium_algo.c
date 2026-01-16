@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   medium_algo.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acombier <acombier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adghouai <adghouai@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 15:15:23 by acombier          #+#    #+#             */
-/*   Updated: 2026/01/16 14:53:05 by acombier         ###   ########.fr       */
+/*   Updated: 2026/01/16 15:15:08 by adghouai         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 
 static size_t count_chunk_elements(t_stack *a, int min, int chunk_num, int chunk_size)
@@ -36,7 +36,7 @@ static void push_chunk_to_b(t_stack *a, t_stack *b, int min, int chunk_num, int 
 	size_t	pushed;
 	int index;
 
-	total = count_chunk_elements_elements(a, min , chunk_num, chunk_num);
+	total = count_chunk_elements(a, min , chunk_num, chunk_num);
 	pushed = 0;
 
 	while(pushed < total)
@@ -44,7 +44,7 @@ static void push_chunk_to_b(t_stack *a, t_stack *b, int min, int chunk_num, int 
 		index = find_chunk_number(a, min, chunk_num, chunk_size);
 		if(index >= 0)
 		{
-			rotate_to_top(a, index);
+			rotate_to_top_a(a, index);
 			pb(a,b);
 			pushed++;
 		}
